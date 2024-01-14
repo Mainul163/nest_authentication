@@ -14,7 +14,7 @@ export class userDto {
   @IsString()
   user_type: string;
   @IsString()
-  role: string;
+  role: [];
   @IsBoolean()
   isActive: boolean;
 }

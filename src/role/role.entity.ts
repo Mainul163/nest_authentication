@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
+import { User } from 'src/user/user.entity';
 @Entity()
 export class Role {
   @PrimaryGeneratedColumn()
@@ -14,4 +14,6 @@ export class Role {
   createdTime: string;
   @Column()
   updatedTime: string;
+  @ManyToMany(() => User, (user) => user.role)
+  user: User[];
 }

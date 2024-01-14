@@ -1,4 +1,4 @@
-import { Controller, Body, Post } from '@nestjs/common';
+import { Controller, Body, Post, Get } from '@nestjs/common';
 import { userDto } from './dtos/user.dto';
 import * as bcrypt from 'bcrypt';
 import { UserService } from './user.service';
@@ -18,6 +18,11 @@ export class userController {
       email: body.email,
       password: hash,
       user_type: body.user_type,
+      role: body.role,
     });
+  }
+  @Get()
+  async getAllUser() {
+    return this.userService.getAllUser();
   }
 }
